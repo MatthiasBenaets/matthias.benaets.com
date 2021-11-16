@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
     <title>Matthias Benaets</title>
 </head>
 <body>
@@ -21,24 +21,24 @@
             <ul class='navLinks'>
                 <li>
                     <div id="navTitle1" class="navButton">
-                        <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="navButtonShape" height="50" width="200" />
+                        <svg class="navBox" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="navButtonShape"/>
                         </svg>
                         <div class="navTitleText">Bio</div>
                     </div>
                 </li>
                 <li>
                     <div id="navTitle2" class="navButton">
-                        <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="navButtonShape" height="50" width="200" />
+                        <svg class="navBox" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="navButtonShape"/>
                         </svg>
                         <div class="navTitleText">Resume</div>
                     </div>
                 </li>
                 <li>
                     <div id="navTitle3" class="navButton">
-                        <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="navButtonShape" height="50" width="200" />
+                        <svg class="navBox" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="navButtonShape"/>
                         </svg>
                         <div class="navTitleText">More</div>
                     </div>
@@ -46,21 +46,24 @@
             </ul>
         </nav>
     </div>
-    <div id="content1">
-        Bio<br><br>WORK IN PROGRESS
+    <div id="content">
+        <div id="contentBio" class="contentWindow">
+        <h1>Bio</h1><br><br>WORK IN PROGRESS
+        </div>
+        <div id="contentResume" class="contentWindow">
+        <h1>Resume</h1><br><br>WORK IN PROGRESS
+        </div>
+        <div id="contentContact" class="contentWindow">
+        <h1>Contact</h1><br><br>WORK IN PROGRESS
+        </div>
+        <div id="closeButton">X</div>
     </div>
-    <div id="content2">
-        Resume<br><br>WORK IN PROGRESS
-    </div>
-    <div id="content3">
-        More<br><br>WORK IN PROGRESS
-    </div>
-    <div id="navBackButton" class="navButton">
+    <!-- <div id="navBackButton" class="navButton">
         <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg">
         <rect class="navButtonShape" height="50" width="200" />
         </svg>
         <div class="navBackText">Back</div>
-    </div>
+    </div> -->
     <script src="app.js"></script>   
 </body>
 </html>

@@ -38,28 +38,28 @@ document.getElementById('navTitle1').onclick = function() {Click1()};
 function Click1(){
   // document.getElementById("bla").innerHTML= "clicked";
   hideLandingPage();
-  setTimeout(() => {document.getElementById("content1").style.visibility="visible"},1000);
-  setTimeout(() => {document.getElementById("content1").style.opacity="1"},1000);
-  setTimeout(() => {document.getElementById("content1").style.animation="fadeIn 1s ease"},1000);
-  setTimeout(() => {document.getElementById("content1").style.visibility="visible"},1005);
+  setTimeout(() => {document.getElementById("contentBio").style.visibility="visible"},1000);
+  setTimeout(() => {document.getElementById("contentBio").style.opacity="1"},1000);
+  setTimeout(() => {document.getElementById("contentBio").style.animation="fadeIn 1s ease"},1000);
+  setTimeout(() => {document.getElementById("contentBio").style.visibility="visible"},1005);
   setTimeout(showBackButton, 2000);
 }
 document.getElementById('navTitle2').onclick = function() {Click2()};
 function Click2(){
   hideLandingPage();
-  setTimeout(() => {document.getElementById("content2").style.visibility="visible"},1000);
-  setTimeout(() => {document.getElementById("content2").style.opacity="1"},1000);
-  setTimeout(() => {document.getElementById("content2").style.animation="fadeIn 1s ease"},1000);
-  setTimeout(() => {document.getElementById("content2").style.visibility="visible"},1005);
+  setTimeout(() => {document.getElementById("contentResume").style.visibility="visible"},1000);
+  setTimeout(() => {document.getElementById("contentResume").style.opacity="1"},1000);
+  setTimeout(() => {document.getElementById("contentResume").style.animation="fadeIn 1s ease"},1000);
+  setTimeout(() => {document.getElementById("contentResume").style.visibility="visible"},1005);
   setTimeout(showBackButton, 2000);
 }
 document.getElementById('navTitle3').onclick = function() {Click3()};
 function Click3(){
   hideLandingPage();
-  setTimeout(() => {document.getElementById("content3").style.visibility="visible"},1000);
-  setTimeout(() => {document.getElementById("content3").style.opacity="1"},1000);
-  setTimeout(() => {document.getElementById("content3").style.animation="fadeIn 1s ease"},1000);
-  setTimeout(() => {document.getElementById("content3").style.visibility="visible"},1005);
+  setTimeout(() => {document.getElementById("contentContact").style.visibility="visible"},1000);
+  setTimeout(() => {document.getElementById("contentContact").style.opacity="1"},1000);
+  setTimeout(() => {document.getElementById("contentContact").style.animation="fadeIn 1s ease"},1000);
+  setTimeout(() => {document.getElementById("contentContact").style.visibility="visible"},1005);
   setTimeout(showBackButton, 2000);
 }
 
@@ -71,8 +71,8 @@ function hideLandingPage(){
   setTimeout(() => {document.getElementById("nav").style.visibility="hidden"},1000);
 }
 function showBackButton(){
-  document.getElementById("navBackButton").style.visibility="visible";
-  document.getElementById("navBackButton").style.animation="fadeIn 2s ease";
+  document.getElementById("closeButton").style.visibility="visible";
+  document.getElementById("closeButton").style.animation="fadeIn 1s ease";
 }
 
 /////////////////////////////
@@ -81,12 +81,12 @@ function showBackButton(){
 
 // Make menu content invisible and load landing page items.
 function contentClose(){
-  document.getElementById("content1").style.visibility="hidden";
-  document.getElementById("content2").style.visibility="hidden";
-  document.getElementById("content3").style.visibility="hidden";
+  document.getElementById("contentBio").style.visibility="hidden";
+  document.getElementById("contentResume").style.visibility="hidden";
+  document.getElementById("contentContact").style.visibility="hidden";
 }
 function loadMain(){
-  document.getElementById("navBackButton").style.visibility="hidden";
+  document.getElementById("closeButton").style.visibility="hidden";
   document.getElementById("nav").style.animation="fadeIn 2s ease";
   document.getElementById("titleSpan").style.animation="fadeIn 2s ease";
 }
@@ -95,13 +95,13 @@ function landingPage(){
   document.getElementById("titleSpan").style.visibility="visible";
 }
 
-document.getElementById('navBackButton').onclick = function() {ClickBack()};
+document.getElementById('closeButton').onclick = function() {ClickBack()};
 function ClickBack(){
-  document.getElementById("content1").style.animation="fadeOut 2s ease";
-  document.getElementById("content2").style.animation="fadeOut 2s ease";
-  document.getElementById("content3").style.animation="fadeOut 2s ease";
-  document.getElementById("navBackButton").style.animation="fadeOut 2s ease";
-  setTimeout(contentClose,2000);
-  setTimeout(loadMain,2000);
-  setTimeout(landingPage,2000);
+  document.getElementById("contentBio").style.animation="fadeOut 1s ease";
+  document.getElementById("contentResume").style.animation="fadeOut 1s ease";
+  document.getElementById("contentContact").style.animation="fadeOut 1s ease";
+  document.getElementById("closeButton").style.animation="fadeOut 1s ease";
+  setTimeout(contentClose,1000);
+  setTimeout(loadMain,1000);
+  setTimeout(landingPage,1000);
 }
