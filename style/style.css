@@ -2,7 +2,7 @@
 
 @font-face{
   font-family: keepCalm;
-  src: url("rsc/font/KeepCalm-Medium.ttf")
+  src: url("../rsc/font/KeepCalm-Medium.ttf")
 }
 
 html {
@@ -99,6 +99,22 @@ a {
   font-family: "keepCalm",sans-serif;
   color: #abc;
   text-align: center;
+}
+
+#contentLeft{
+  position: absolute;
+  width: 50% !important;
+  height: 100% !important;
+  left: 0;
+  top: 0;
+}
+
+#contentRight{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
 }
 
 .contentWindow{
