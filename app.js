@@ -21,7 +21,7 @@ function typeEffect(element, speed) {
 // variables for function typeEffect
 var speed = 75;
 var titleSpan = document.getElementById('titleSpan');
-var ye = document.getElementById('ye');
+// var ye = document.getElementById('ye');
 var delay = titleSpan.innerHTML.length + 700;
 
 // Type title and load navigation bar afterwards.

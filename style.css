@@ -2,7 +2,7 @@
 
 @font-face{
   font-family: keepCalm;
-  src: url("../rsc/font/KeepCalm-Medium.ttf")
+  src: url("rsc/font/KeepCalm-Medium.ttf")
 }
 
 html {
@@ -15,6 +15,7 @@ html {
 
 a {
   text-decoration: none;
+  color: #abc;
 }
 
  #titleName {
@@ -76,6 +77,13 @@ a {
   color: #abc;
   text-align: center;
 }
+.contentWindow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 2vh; */
+}
 
 img{
   position:relative;
@@ -109,25 +117,37 @@ img{
 
 #resumeLeft{
   position: absolute;
-  top: 5%;
-  left: 0;
+  top: 25%;
+  left: -1vh;
   width: 50% !important;
   height: 100% !important;
  
 }
 #resumeRight{
   position: absolute;
-  top: 5%;
-  right: 0;
+  top: 25%;
+  right: -1vh;
   width: 50% !important;
   height: 100% !important;
 }
 
-.contentWindow{
+#contactLeft{
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  top: 0%;
+  left: -1vh;
+  width: 50% !important;
+  height: 100% !important;
+ 
+}
+#contactRight{
+  position: absolute;
+  top: 0%;
+  right: -1vh;
+  width: 50% !important;
+  height: 100% !important;
+}
+#contactFormLink{
+  visibility: hidden;
 }
 
 /*-----------------------------*/
@@ -272,51 +292,52 @@ img{
 @media screen and (max-width: 96vh) {
   
   .navLinks li {
-    padding-left: 1vh;
-    padding-right: 1vh;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
   }
   .navButton {
     height: 5vh;
-    width: 10vh;
+    width: 15vh;
   }
   .navButtonShape {
     height: 5vh;
-    width: 10vh;
+    width: 13vh;
     stroke: #abc;
     stroke-width: 0.8vh;
-    stroke-dasharray: 4vh 20vh;
-    stroke-dashoffset: -18vh;
+    stroke-dasharray: 4vh 35vh;
+    stroke-dashoffset: -22.5vh;
   }
   .navBox{
     position:absolute;
-    left: 0;
+    left: 1.3vh;
     top: 0;
     height: 5vh;
-    width: 10vh;
+    width: 15vh;
   }
   .navTitleText {
     top: 2.8vh;
-    left: 0;
+    right: 0;
     line-height: 0vh;
-    font-size: 1.5vh;
-    letter-spacing: 0.2vh;
+    font-size: 2.6vh;
+    text-align: center;
+    letter-spacing: 0vh;
   }
   
   @keyframes draw {
     0% {
       stroke-width: 0.8vh;
-      stroke-dasharray: 4vh 20vh;
-      stroke-dashoffset: -18vh;
+      stroke-dasharray: 4vh 35vh;
+      stroke-dashoffset: -22.5vh;
     }
     100% {
       stroke-width: 0.2vh;
-      stroke-dasharray: 54vh;
+      stroke-dasharray: 72vh;
       stroke-dashoffset: 0;
     }
   }
 
   h1{
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
 
   #content{
@@ -333,5 +354,41 @@ img{
 
   img{
     width:100%;
+  }
+  #bioLeftTop{
+    height: 40% !important;
+    padding-top: 4vh;
+  }
+  #bioLeftBottom{
+    bottom: 2%;
+    height: 60% !important;
+  }
+  #bioRight{
+    top:8%;
+  }
+
+  #resumeLeft{
+    top: 10%;
+    left: 0;
+    width: 100% !important;
+    height: 50% !important;
+  }
+  #resumeRight{
+    top: 45%;
+    right: 0;
+    width: 100% !important;
+    height: 60% !important;
+  }
+
+  #contactLeft{
+    position: absolute;
+    width: 100% !important;
+    top: 25%;
+  }
+  #contactRight{
+    visibility: hidden;
+  }
+  #contactFormLink{
+    visibility: visible;
   }
 }  
