@@ -105,3 +105,8 @@ function ClickBack(){
   setTimeout(loadMain,1000);
   setTimeout(landingPage,1000);
 }
+
+window.onpopstate = function(event) {
+  event.preventDefault()
+  return false
+}
