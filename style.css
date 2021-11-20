@@ -57,7 +57,9 @@ a {
   padding-right: 6vh;
   letter-spacing: 1vh;
 }
-/*---  Menu Content Loader  ---*/
+/*----------------------------*/
+/*---  Menu Content Loader ---*/
+/*----------------------------*/
 #content{
   visibility: hidden;
   position: absolute;
@@ -188,7 +190,9 @@ embed{
   height: 100%;
   opacity: 0.5;
 } 
-/*---  navButton animation  ---*/
+/*----------------------------*/
+/*--- navButton  animation ---*/
+/*----------------------------*/
 .navButton {
   position: relative;
   top: 50%;
@@ -237,7 +241,9 @@ embed{
     stroke-dashoffset: 0;
   }
 }
+/*----------------------------*/
 /*---    Fade Animation    ---*/
+/*----------------------------*/
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
@@ -246,7 +252,9 @@ embed{
   0% {opacity:1;}
   100% {opacity:0;}
 }
+/*----------------------------*/
 /*--- BACKGROUND PARTICLES ---*/
+/*----------------------------*/
 #particle1 {
   width: 0.1vh;
   height: 0.1vh;
@@ -303,7 +311,9 @@ embed{
     transform: translateY(200vh);
   }
 }
+/*----------------------------*/
 /*---    MOBILE SUPPORT    ---*/
+/*----------------------------*/
 @media screen and (max-width: 98vh) {
   h1{
     font-size: 2.5vh;
@@ -394,7 +404,9 @@ embed{
     visibility: hidden;
   }
 }  
+/*----------------------------*/
 /*---  MOBILE  OVERWRITES  ---*/
+/*----------------------------*/
 @media screen and (min-width: 98vh) {
   #contactFormLink{
   visibility: hidden;
