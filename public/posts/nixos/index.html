@@ -1,0 +1,1347 @@
+
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Getting Started with NixOS &middot; Home</title>
+    <meta name="title" content="Getting Started with NixOS &middot; Home" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://benaets.com/posts/nixos/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.78d378c88b1a969bf4642742d88295ebd3d14d3967d411672107b5fdeafc471cecaac5303076c401cb6aee74419bd8a29c9cb1f8f3beb12dabb33781393c3aee.css"
+    integrity="sha512-eNN4yIsalpv0ZCdC2IKV69PRTTln1BFnIQe1/er8RxzsqsUwMHbEActq7nRBm9iinJyx&#43;PO&#43;sS2rszeBOTw67g=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.12e98742cd283574d030a7fe55f29597df4ee214f7ff7075b4d19a64d046a602753c715295550be7899b661619cec89c679049d36c624681671a8013c1249896.js" integrity="sha512-EumHQs0oNXTQMKf&#43;VfKVl99O4hT3/3B1tNGaZNBGpgJ1PHFSlVUL54mbZhYZzsicZ5BJ02xiRoFnGoATwSSYlg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+    
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.aa5ffa2b2773eb272da72cfa6ef7776579c988f2765b6699f998066df73d50454252fdf6fdab78c9ea80c6fd26955cc45c9f8350b6fc42fe8b51436f83bba7db.js" integrity="sha512-ql/6Kydz6yctpyz6bvd3ZXnJiPJ2W2aZ&#43;ZgGbfc9UEVCUv32/at4yeqAxv0mlVzEXJ&#43;DULb8Qv6LUUNvg7un2w==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Getting Started with NixOS" />
+<meta property="og:description" content="Getting Started with NixOS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://benaets.com/posts/nixos/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-12T00:00:00+00:00" /><meta property="og:site_name" content="Home" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started with NixOS"/>
+<meta name="twitter:description" content="Getting Started with NixOS"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Getting Started with NixOS",
+    "headline": "Getting Started with NixOS",
+    "description": "Getting Started with NixOS",
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/benaets.com\/posts\/nixos\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Matthias Benaets"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-04-12T00:00:00\u002b00:00",
+    "datePublished": "2022-04-12T00:00:00\u002b00:00",
+    
+    "dateModified": "2022-04-12T00:00:00\u002b00:00",
+    
+    "keywords": ["NixOS"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2354"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="Matthias Benaets" />
+  
+    
+      <link href="mailto:matthias@benaets.com" rel="me" />
+    
+      <link href="https://linkedin.com/in/matthias-benaets" rel="me" />
+    
+      <link href="https://github.com/MatthiasBenaets" rel="me" />
+    
+      <link href="https://youtube.com/channel/UCBM5nbY7a3EqqvxFZzOEkqQ" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 dark:bg-neutral-600 focus:translate-y-0"
+        href="#main-content"
+        ><span class="font-bold ltr:pr-2 rtl:pl-2 text-primary-600 dark:text-primary-400"
+          >&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
+  <nav class="flex justify-between">
+    
+    <div>
+      
+        <a
+          class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+          rel="me"
+          href="/"
+          >Home</a
+        >
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/about/"
+                title="About Me"
+                >About</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/posts/"
+                title="Posts"
+                >Posts</a
+              >
+            </li>
+          
+        
+        
+          <li class="ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+            <button
+              id="search-button"
+              class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+              title="Search (/)"
+            >
+              
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+          </li>
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Getting Started with NixOS
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <span title="Reading time">12 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+      
+        <div class="order-first px-0 lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8 lg:order-last">
+          <div class="ltr:pl-5 rtl:pr-5 toc lg:sticky lg:top-10 print:hidden">
+            <details open class="mt-0 overflow-hidden rounded-lg rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 text-neutral-800 dark:text-neutral-100 lg:hidden bg-neutral-100 dark:bg-neutral-700"
+  >
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted ltr:border-l rtl:border-r rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 border-neutral-300 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#initial-configuration">Initial Configuration</a>
+      <ul>
+        <li><a href="#configurationnix">Configuration.nix</a></li>
+        <li><a href="#hardware-configurationnix">Hardware-configuration.nix</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#extras">Extras</a></li>
+      </ul>
+    </li>
+    <li><a href="#home-manager">Home-Manager</a>
+      <ul>
+        <li><a href="#standalone">Standalone</a></li>
+        <li><a href="#module">Module</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#flakes">Flakes</a>
+      <ul>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#configuration-1">Configuration</a></li>
+        <li><a href="#home-manager-1">Home-Manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        <hr>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AGVXJ-TIv3Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<h2 id="introduction" class="relative group">Introduction <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#</a></span></h2>
+<p>NixOS is a Linux distribution based on the Nix package manager.
+The main reason for using NixOS is the declarative reproducibility of your system.</p>
+<p>NixOS allows you to declare pretty much everything about your system inside a single document. This document allows for the reproducable setup that can be used on any system.</p>
+<p>Whenever this document gets updates, NixOS will generate a new generation which can be booted into. Since NixOS is known for being unbreakable, it will also store the previous generations just in case the new changes are causing issues.</p>
+<p>Unlike the average Linux destribution, NixOS stores all it&rsquo;s packages inside the <code>/nix/store</code>. Directory <code>/lib</code>, <code>/usr/lib</code>, <code>/bin</code> and <code>/usr/bin</code> are pretty much non-existant.</p>
+<p>In this guide I would go into to much detail about setting up the installatia media but by following the steps below, you&rsquo;ll end up with a decent understanding on how to configure your own declarative reproducible NixOS setup. I highly recommend that you use these notes in conjunction with the mini-course video to learn more about NixOS.</p>
+<h2 id="getting-started" class="relative group">Getting Started <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#getting-started" aria-label="Anchor">#</a></span></h2>
+<ul>
+<li><a href="https://nixos.org/download.html" target="_blank">
+  Download the iso
+</a>
+ and <a href="https://www.balena.io/etcher/" target="_blank">
+  burn it to a bootable device
+</a>
+.</li>
+<li>Boot into device with iso.</li>
+</ul>
+<p>Either follow the Calamares Installer or the step below:</p>
+<p><u><strong>Partitioning</strong></u></p>
+<ul>
+<li>Open the terminal and switch to the root user <code>su</code></li>
+<li>Run the commands below:
+<ul>
+<li>This will format the disk and create the partitions
+<ul>
+<li>Change 8GiB swap to your personal preference. Or remove it and end the root partition at 100%.</li>
+</ul>
+</li>
+<li>Choose between the two options between &ldquo;&lt; &gt;&rdquo;. Left option is legacy boot, right option is UEFI.</li>
+<li>Change <code>/dev/sda</code> to the disk used to install NixOS.</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>  # parted /dev/sda -- mklabel &lt;msdos/gpt&gt;
+  # parted /dev/sda -- mkpart primary &lt;1MiB -8GiB/512MiB -8GiB&gt; 
+  # parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+
+  /* extra for UEFI */
+  # parted /dev/sda -- mkpart ESP fat32 1Mib 512MiB
+  # parted /dev/sda -- set 3 esp on
+
+  # mkfs.ext4 -L nixos /dev/sda1
+  # mkswap -L swap /dev/sda2
+
+  /* extra for UEFI */
+  # mkfs.fat -F 32 -n boot /dev/sda3
+</code></pre><p><u><strong>Mounting</strong></u></p>
+<pre tabindex="0"><code>  # mount /dev/disk/by-label/nixos /mnt
+
+  /* extra for UEFI */
+  # mkdir -p /mnt/boot
+  # mount /dev/disk/by-label/boot /mnt/boot
+
+  # swapon /dev/sda2
+</code></pre><h2 id="initial-configuration" class="relative group">Initial Configuration <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#initial-configuration" aria-label="Anchor">#</a></span></h2>
+<ul>
+<li>Generate a default configuration:
+<ul>
+<li><code># nixos-generate-config --root /mnt</code></li>
+</ul>
+</li>
+<li>Location of configuration.nix:
+<ul>
+<li><code># cd /mnt/etc/nixos</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="configurationnix" class="relative group">Configuration.nix <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configurationnix" aria-label="Anchor">#</a></span></h3>
+<p><u><strong>General</strong></u></p>
+<ul>
+<li>Argument on how to evaluate config:
+<ul>
+<li><code>{config, pkgs, ...}:</code></li>
+</ul>
+</li>
+<li>Pull in other files used within the config:
+<ul>
+<li><code>import = [./hardware-configuration.nix];</code></li>
+</ul>
+</li>
+</ul>
+<p><u><strong>Boot</strong></u></p>
+<p><strong>Legacy</strong></p>
+<ul>
+<li>Only viable if dualbooting linux distributions*</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="c1"># Default Grub setup</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">enable</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">version</span> <span class="err">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">device</span> <span class="err">=</span> <span class="s2">&#34;/dev/vda&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Dual booting made easy (Optional)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">useOSProber</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Dual booting made a bit harder (Extra Optional)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">extraEntries</span> <span class="err">=</span> <span class="s1">&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    menuentry &#34;Windows 10&#34; {
+</span></span></span><span class="line"><span class="cl"><span class="s1">      chainloader (hd0,1)+1
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p><strong>UEFI</strong></p>
+<ul>
+<li>Used for larger boot drives and dual booting with Windows*</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="c1"># Default UEFI setup</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">systemd-boot</span><span class="o">.</span><span class="n">enable</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">efi</span><span class="o">.</span><span class="n">canTouchEfiVariables</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1"># Dual Booting using grub</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">efi</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">canTouchEfiVariables</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">efiSysMountPoint</span> <span class="o">=</span> <span class="s2">&#34;/boot/efi&#34;</span><span class="p">;</span> <span class="c1"># /boot will probably work too</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">grub</span> <span class="o">=</span> <span class="p">{</span>                          <span class="c1"># Using grub means first 2 lines can be removed</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#device = [&#34;nodev&#34;];            # Generate boot menu but not actually installed</span>
+</span></span><span class="line"><span class="cl">      <span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;nodev&#34;</span><span class="p">];</span>            <span class="c1"># Install grub</span>
+</span></span><span class="line"><span class="cl">      <span class="n">efiSupport</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">useOSProber</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>             <span class="c1"># Or use extraEntries like seen with Legacy</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>                                <span class="c1"># OSProber will probably not find windows partition on first install</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p><strong>Extras</strong></p>
+<ul>
+<li>Some extra useful boot parameters</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="p">{</span> <span class="n">pkgs</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">boot</span> <span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">kernelPackages</span> <span class="o">=</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">linuxPackages_latest</span><span class="p">;</span>       <span class="c1"># Get latest kernel</span>
+</span></span><span class="line"><span class="cl">      <span class="n">initrd</span><span class="o">.</span><span class="n">kernelModules</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;amdgpu&#34;</span><span class="p">];</span>                <span class="c1"># More on this later on (setting it for xserver)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">loader</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">grub</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">configurationLimit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                       <span class="c1"># Limit stored system configurations.</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>                                              <span class="c1"># Also exists for systemd-boot</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timeout</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                                    <span class="c1"># Work for grub and efi boot, time before auto-boot</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><u><strong>Internationalisation</strong></u></p>
+<ul>
+<li>Locales, Layouts and Options</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="c1"># Clock</span>
+</span></span><span class="line"><span class="cl">  <span class="n">time</span><span class="o">.</span><span class="n">timeZone</span> <span class="err">=</span> <span class="s2">&#34;Belgium/Brussels&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Locale</span>
+</span></span><span class="line"><span class="cl">  <span class="n">i18n</span><span class="o">.</span><span class="n">defaultLocale</span> <span class="err">=</span> <span class="s2">&#34;en_US.UTF-8&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">i18n</span><span class="o">.</span><span class="n">extraLocaleSettings</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LC_TIME</span> <span class="o">=</span> <span class="s2">&#34;nl_BE.UTF-8&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LC_MONETARY</span> <span class="o">=</span> <span class="s2">&#34;nl_BE.UTF-8&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># TTY layout</span>
+</span></span><span class="line"><span class="cl">  <span class="n">console</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">font</span> <span class="o">=</span> <span class="s2">&#34;...&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">keyMap</span> <span class="o">=</span> <span class="s2">&#34;...&#34;</span><span class="p">;</span>                           <span class="c1"># us / fr / azerty / etc...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># XServer layout (possibly also sets console now)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">layout</span> <span class="err">=</span> <span class="s2">&#34;...&#34;</span>             <span class="c1"># us / fr / be / etc..</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Extra keyboard settings:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">xkbOptions</span> <span class="err">=</span> <span class="s2">&#34;eurosign:e&#34;</span><span class="p">;</span> <span class="c1"># For example adds €</span>
+</span></span></code></pre></div><p><u><strong>DE/WM</strong></u></p>
+<ul>
+<li>Default</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">enable</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">displayManager</span><span class="o">.</span><span class="n">sddm</span><span class="o">.</span><span class="n">enable</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">plasma5</span><span class="o">.</span><span class="n">enable</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>Customized</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">services</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xserver</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">displayManager</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lightdm</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">defaultSession</span> <span class="o">=</span> <span class="err">“</span><span class="n">none</span><span class="o">+</span><span class="n">bspwm</span><span class="err">”</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="n">desktopManager</span><span class="o">.</span><span class="n">xfce</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">windowManager</span><span class="o">.</span><span class="n">bspwm</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p><u><strong>Hardware</strong></u></p>
+<ul>
+<li>Example for sound and bluetooth</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">    <span class="n">sound</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mediaKeys</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">pipewire</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alsa</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">support32Bit</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pulse</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hardware</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">bluetooth</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hsphfpd</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>         <span class="c1"># HSP &amp; HFP daemon</span>
+</span></span><span class="line"><span class="cl">        <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">General</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Enable</span> <span class="o">=</span> <span class="s2">&#34;Source,Sink,Media,Socket&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>Example of libinput for touchpads</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">libinput</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#tapping = true;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#naturalScrolling = true;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#...</span>
+</span></span></code></pre></div><p><u><strong>Users</strong></u></p>
+<ul>
+<li>Example on how to create a user and add them to groups.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">users</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="sr">&lt;name&gt;</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">isNormalUser</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extraGroups</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;wheel&#34;</span> <span class="s2">&#34;video&#34;</span> <span class="s2">&#34;audio&#34;</span> <span class="s2">&#34;networkmanager&#34;</span> <span class="s2">&#34;lp&#34;</span> <span class="s2">&#34;scanner&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#initialPassword = &#34;password&#34;;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#shell = pkgs.zsh;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p><u><strong>Packages</strong></u></p>
+<ul>
+<li>Example of how to declare packages</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">environment</span><span class="o">.</span><span class="n">systemPackages</span> <span class="err">=</span> <span class="k">with</span> <span class="n">pkgs</span><span class="p">;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vim</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wget</span>
+</span></span><span class="line"><span class="cl">    <span class="n">git</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#pkgs.firefox</span>
+</span></span><span class="line"><span class="cl">    <span class="n">firefox</span>
+</span></span></code></pre></div><p><u><strong>StateVersion</strong></u></p>
+<ul>
+<li>No need to touch this.</li>
+<li>Nothing to do with the version of the system.</li>
+<li>Just tells the version of state/config</li>
+<li>Can be updated to a stable version if you are really sure.</li>
+</ul>
+<h3 id="hardware-configurationnix" class="relative group">Hardware-configuration.nix <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#hardware-configurationnix" aria-label="Anchor">#</a></span></h3>
+<p><u><strong>Generate</strong></u></p>
+<ul>
+<li>Also get automatically generated with:
+<ul>
+<li><code># nixos-generate-config --root /mnt</code></li>
+</ul>
+</li>
+<li>Should detect mounted drives, device parts, kernelModules, etc.. that are needed</li>
+<li>Can be deleted and regenerated with:
+<ul>
+<li><code># nixos-generate-config</code></li>
+</ul>
+</li>
+</ul>
+<p><u><strong>File System</strong></u></p>
+<ul>
+<li><code>$ sudo blkid</code></li>
+<li>or just look in gparted</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">fileSystems</span><span class="o">.</span><span class="s2">&#34;/&#34;</span> <span class="err">=</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">device</span> <span class="o">=</span> <span class="s2">&#34;/dev/disk/by-uuid/e97ad9a8-d84f-4710-b8c9-cfa7707510ca&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">fsType</span> <span class="o">=</span> <span class="s2">&#34;ext4&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#fileSystem.&#34;/&#34; =</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#  { device = &#34;/dev/disk/by-label/nixos&#34;;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#    fsType = &#34;ext4&#34;;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#  };</span>
+</span></span></code></pre></div><p><u><strong>Networking</strong></u></p>
+<ul>
+<li>Network card details
+<ul>
+<li>Deprecated but keep: <code>networking.useDHCP = false;</code></li>
+<li>Just internet via ethernet: <code>networking.interfaces.&lt;networkcard-id&gt;.useDHCP = true;</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">networking</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#hostName = &#34;nixos&#34;;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#networkmanager.enable = true;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">interfaces</span> <span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enp0s3</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#useDHCP = true;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ipv4</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span>         <span class="c1"># Ofcourse not compatible with networkmanager</span>
+</span></span><span class="line"><span class="cl">          <span class="n">address</span> <span class="o">=</span> <span class="s2">&#34;192.168.0.50&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">prefixLength</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">defaultGateway</span> <span class="o">=</span> <span class="s2">&#34;192.168.0.1&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nameservers</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;1.1.1.1&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><h1 id="installation" class="relative group">Installation <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#installation" aria-label="Anchor">#</a></span></h1>
+<ul>
+<li>For the initial installation:
+<ul>
+<li><code># nixos-install</code></li>
+</ul>
+</li>
+<li>After applying changes to your configuration.nix:
+<ul>
+<li><code># nixos-rebuild switch</code></li>
+</ul>
+</li>
+<li>At the end of the installation process, pick a root password.</li>
+<li>Reboot</li>
+<li>If <code>users.users.&lt;user&gt;.initialPassword</code> was not set, you will need to do this now via the TTY
+<ul>
+<li>Ctr + Alt + F&lt;1-12&gt; -&gt; Log in with root</li>
+<li><code># passwd &lt;user&gt;</code></li>
+<li>Ctrl + Alt + F1 or F7 -&gt; Log into graphical environment with user</li>
+</ul>
+</li>
+</ul>
+<h1 id="package-management" class="relative group">Package Management <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#package-management" aria-label="Anchor">#</a></span></h1>
+<p>Nix packages and options can be found here: <a href="https://search.nixos.org/packages" target="_blank">
+  packages
+</a>
+ | <a href="https://search.nixos.org/options" target="_blank">
+  options
+</a>
+</p>
+<ul>
+<li>Install individually with Nix Package Manager
+<ul>
+<li><code>$ nix-env -iA nixos.&lt;package&gt;</code></li>
+<li><code>$ nix-env --uninstall &lt;package&gt;</code></li>
+</ul>
+</li>
+<li>Temporarily install packages using <code>$ nix-shell -p &lt;package&gt;</code></li>
+</ul>
+<p><u><strong>Declaring Packages</strong></u></p>
+<ul>
+<li>Install systemwide packages with configuration.nix</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">environment</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">systemPackages</span> <span class="o">=</span> <span class="k">with</span> <span class="n">pkgs</span><span class="p">;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="n">plex</span>
+</span></span><span class="line"><span class="cl">      <span class="n">superTux</span>
+</span></span><span class="line"><span class="cl">    <span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">nixpkgs</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">allowUnfree</span> <span class="err">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span></code></pre></div><p><u><strong>Declaring Options</strong></u></p>
+<ul>
+<li>Some packages will also have options to configure it further</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">services</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plex</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">openFirewall</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p><u><strong>Declaring Options</strong></u></p>
+<ul>
+<li>Values that can change often or you want to use multiple times</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="k">let</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rofi-theme</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;*&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bg</span> <span class="o">=</span> <span class="s2">&#34;#FFFFFF&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">programs</span><span class="o">.</span><span class="n">rofi</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">theme</span> <span class="o">=</span> <span class="n">rofi-theme</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><u><strong>Declaring Options</strong></u></p>
+<ul>
+<li>Change packages that already exist in nix</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">nixpkgs</span><span class="o">.</span><span class="n">overlays</span> <span class="err">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">super</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sl</span> <span class="o">=</span> <span class="n">super</span><span class="o">.</span><span class="n">sl</span><span class="o">.</span><span class="n">overrideAttrs</span> <span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">src</span> <span class="o">=</span> <span class="n">super</span><span class="o">.</span><span class="n">fetchFromGitHub</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">owner</span> <span class="o">=</span> <span class="s2">&#34;mtoyoda&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">repo</span> <span class="o">=</span> <span class="s2">&#34;sl&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">rev</span> <span class="o">=</span> <span class="s2">&#34;923e7d7ebc5c1f009755bdeb789ac25658ccce03&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">sha256</span> <span class="o">=</span> <span class="s2">&#34;0000000000000000000000000000000000000000000000000000&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">super</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">discord</span> <span class="o">=</span> <span class="n">super</span><span class="o">.</span><span class="n">discord</span><span class="o">.</span><span class="n">overrideAttrs</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_</span><span class="p">:</span> <span class="p">{</span> <span class="n">src</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://discord.com/api/download?platform=linux&amp;format=tar.gz&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">sha256</span> <span class="o">=</span> <span class="s2">&#34;0000000000000000000000000000000000000000000000000000&#34;</span><span class="p">;</span> <span class="c1">#52 0&#39;s</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">];</span>
+</span></span></code></pre></div><p><u><strong>Applying</strong></u></p>
+<ul>
+<li><code>$ sudo nixos-rebuild switch</code></li>
+</ul>
+<h3 id="extras" class="relative group">Extras <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#extras" aria-label="Anchor">#</a></span></h3>
+<p><u><strong>Update &amp; Upgrade</strong></u></p>
+<ol>
+<li><code>$ nix-channel --add https://nixos.org/channels/nixos-21.11</code> OR <code>$ nix-channel --update</code></li>
+<li>Next rebuild,use the &ndash;upgrade flag <code>$ sudo nixos-rebuild --upgrade</code></li>
+</ol>
+<p>If Apps are installed through nix-env <code>$ nix-env -u '*'</code></p>
+<p><u><strong>Garbage Collections</strong></u></p>
+<ul>
+<li>Remove undeclared packages, dependencies and symlinks: <code>$ nix-collect-garbage</code></li>
+<li>Remove above of older generations: <code>$ nix-collect-garbage --delete-old</code>
+<ul>
+<li>List generations: <code>$ nix-env --list-generations</code></li>
+</ul>
+</li>
+<li>Remove specific generations or older than &hellip; days:
+<ul>
+<li><code>$ nix-env --delete-generations 14d</code></li>
+<li><code>$ nix-env --delete-generations 10 11</code></li>
+<li>Optimize store: <code>$ nix-store --gc</code></li>
+</ul>
+</li>
+<li>All in one:<code>$ nix-collect-garbage -d</code></li>
+</ul>
+<p>Inside configurations.nix</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">nix</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">settings</span><span class="o">.</span><span class="n">auto-optimise-store</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gc</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">automatic</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">dates</span> <span class="o">=</span> <span class="s2">&#34;weekly&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">options</span> <span class="o">=</span> <span class="s2">&#34;--delete-older-than 7d&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><h2 id="home-manager" class="relative group">Home-Manager <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#home-manager" aria-label="Anchor">#</a></span></h2>
+<p><a href="https://github.com/nix-community/home-manager" target="_blank">
+  Home-Manager
+</a>
+ is configuration.nix but for the user environment.
+Instead of installing packages system-wide, it will install packages only for a specified user.
+It has plenty more options to declare if your configuration.nix and it&rsquo;s a great way to configure and manage your <code>~/.config</code> dotfiles.
+All configurations options can be found in the <a href="https://nix-community.github.io/home-manager/options.html" target="_blank">
+  Home-Manager
+</a>
+ <a href="https://nix-community.github.io/home-manager/nixos-options.html" target="_blank">
+  Appendixes
+</a>
+.</p>
+<p>Home-Manager can be set up in multiple way. Below you will find some of the option on how to implement it in your configuration.</p>
+<p>Before getting started with Home-Manager, a nix-channel will need to be created so the system can make use of the new configuration options.
+If you plan on using Home-Manager as a NixOS-module, run the commands below as root.</p>
+<p>Unstable channel: <code>$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager</code>
+Stable channel: <code>nix-channel --add https://github.com/nix-community/home-manager/archive/release-&lt;version.number&gt;.tar.gz home-manager</code>
+And update the channels with: <code>$ nix-channel --update</code></p>
+<h3 id="standalone" class="relative group">Standalone <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#standalone" aria-label="Anchor">#</a></span></h3>
+<p>Installation is done by running the command: <code>$ nix-shell '&lt;home-manager&gt;' -A install</code>
+You can nog edit the home.nix file in <code>~/.config/nixpkgs/home.nix</code></p>
+<h3 id="module" class="relative group">Module <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#module" aria-label="Anchor">#</a></span></h3>
+<p>Implement the options below into your configuration.nix. You can afterwards <code>nixos-rebuild switch</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="k">let</span>
+</span></span><span class="line"><span class="cl">  <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="sr">&lt;home-manager/nixos&gt;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">users</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="sr">&lt;name&gt;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">isNormalUser</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">home-manager</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="sr">&lt;name&gt;</span> <span class="o">=</span> <span class="p">{</span> <span class="n">pkgs</span><span class="o">,</span> <span class="err">…</span><span class="p">}:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># declared packages. for example:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">home</span><span class="o">.</span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">atool</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">httpie</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><h3 id="configuration" class="relative group">Configuration <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configuration" aria-label="Anchor">#</a></span></h3>
+<p><u><strong>Declaring packages</strong></u></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">home</span><span class="o">.</span><span class="n">packages</span> <span class="err">=</span> <span class="k">with</span> <span class="n">pkgs</span><span class="p">;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">firefox</span>
+</span></span><span class="line"><span class="cl">  <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">dunst</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p>To apply the changes to the standalone version: <code>$ home-manager switch</code></p>
+<p><u><strong>Dotfiles</strong></u></p>
+<ul>
+<li>Implement existing config inside the nix file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">home</span><span class="o">.</span><span class="n">file</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;.config/alacritty/alacritty.yml&#34;</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {&#34;font&#34;:{&#34;bold&#34;:{&#34;style&#34;:&#34;Bold&#34;}}}
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>Implement with files saved locally</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">home</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="s2">&#34;.doom.d&#34;</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">source</span> <span class="o">=</span> <span class="sr">./doom.d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recursive</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">onChange</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="n">readFile</span> <span class="sr">./doom.sh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">home</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="s2">&#34;.config/polybar/script/mic.sh&#34;</span><span class="err">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">source</span> <span class="o">=</span> <span class="sr">./mic.sh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">executable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>Declarativly with existing options,\</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xsession</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">windowManager</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bspwm</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">rules</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Emacs&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">desktop</span> <span class="o">=</span> <span class="s2">&#34;3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">              <span class="n">follow</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">              <span class="n">state</span> <span class="o">=</span> <span class="s2">&#34;tiled&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;.blueman-manager-wrapped&#34;</span> <span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">state</span> <span class="o">=</span> <span class="s2">&#34;floating&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">              <span class="n">sticky</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><h2 id="flakes" class="relative group">Flakes <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#flakes" aria-label="Anchor">#</a></span></h2>
+<p>Flakes are a fully supported feature of the NixOS.
+With flakes you can specify code dependencies declaratively. These will be stored inside a <code>flake.lock</code> file.
+An example of a code dependency is home-manager.
+Flakes make rebuilding and updating the whole system a lot easier.
+Arguably it makes it way easier to build your own config. You can save multiple configs inside one file and share them easily with others using something like GitHub.</p>
+<p>It&rsquo;s highly recommended that you have a look at the <a href="https://nixos.wiki/wiki/Flakes" target="_blank">
+  wiki article
+</a>
+ about flakes.</p>
+<h3 id="setup" class="relative group">Setup <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#setup" aria-label="Anchor">#</a></span></h3>
+<p>Inside the configuration.nix add:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">nix</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">package</span> <span class="o">=</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">nixFlakes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extraOptions</span> <span class="o">=</span> <span class="s2">&#34;experimental-features = nix-command flakes&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p>Now choose a location where you want to store the flake file and run:</p>
+<ul>
+<li><code>$ nix flake init</code>
+Inside the flake.nix file you will find the options <code>inputs</code> and <code>outputs</code>.
+The inputs are used to declare your dependencies. Of of these dependencies is, for example, the nix packages itself.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">inputs</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nixpkgs</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;github:nixos/nixpkgs/nixos-unstable&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></div><p>The outpus are the arguments that can be used that reference the imputs. This can be:</p>
+<ul>
+<li>Everything you imported</li>
+<li>Packages / configurations / modules / options / etc &hellip;</li>
+</ul>
+<h3 id="configuration-1" class="relative group">Configuration <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#configuration-1" aria-label="Anchor">#</a></span></h3>
+<p>An example of a basic flake.nix file is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="n">inputs</span> <span class="err">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nixpkgs</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;github:nixos/nixpkgs/nixos-unstable&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#nixpkgs-unstable.url = &#34;github:nixos/nixpkgs/nixpkgs-unstable&#34;;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">outputs</span> <span class="err">=</span> <span class="p">{</span> <span class="n">nixpkgs</span><span class="o">,</span> <span class="n">home-manager</span><span class="o">,</span> <span class="err">…</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span>
+</span></span><span class="line"><span class="cl">      <span class="n">system</span> <span class="o">=</span> <span class="err">“</span><span class="n">x86_64-linux</span><span class="err">”</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">pkgs</span> <span class="o">=</span> <span class="kn">import</span> <span class="n">nixpkgs</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">inherit</span> <span class="n">system</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="o">.</span><span class="n">allowUnfree</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">lib</span> <span class="o">=</span> <span class="n">nixpkgs</span><span class="o">.</span><span class="n">lib</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">nixosConfigurations</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="sr">&lt;user&gt;</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">nixosSystem</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">inherit</span> <span class="n">system</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">modules</span> <span class="o">=</span> <span class="p">[</span> <span class="sr">./configuration.nix</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">       <span class="p">};</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">#&lt;second user&gt; = lib.nixosSystem {</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">#inherit system;</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">#modules = [ ./configuration.nix ];</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">#};</span>
+</span></span><span class="line"><span class="cl">     <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>In this example the configuration.nix and hardware-configuration.nix file is move to the same directory as the flake.nix file.
+To update the system using the flake.nix file run: <code>$ sudo nixos-rebuild switch --flake .#</code></p>
+<h3 id="home-manager-1" class="relative group">Home-Manager <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#home-manager-1" aria-label="Anchor">#</a></span></h3>
+<p>Once again, Home-Manager can be set up in multiple ways inside the flake.</p>
+<p><u><strong>Seperate</strong></u></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#other inputs</span>
+</span></span><span class="line"><span class="cl">      <span class="n">home-manager</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="sd">github:nix-community/home-manager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span><span class="o">.</span><span class="n">nixpkgs</span><span class="o">.</span><span class="n">follows</span> <span class="o">=</span> <span class="s2">&#34;nixpkgs&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span> <span class="n">self</span><span class="o">,</span> <span class="n">nixpkgs</span><span class="o">,</span> <span class="n">home-manager</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">let</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#variables</span>
+</span></span><span class="line"><span class="cl">      <span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#other outputs</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hmConfig</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="sr">&lt;user&gt;</span> <span class="o">=</span> <span class="n">home-manager</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">homeManagerConfiguration</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">inherit</span> <span class="n">system</span> <span class="n">pkgs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">username</span> <span class="o">=</span> <span class="err">“</span><span class="sr">&lt;user&gt;</span><span class="err">”</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">homeDirectory</span> <span class="o">=</span> <span class="err">“</span><span class="sr">/home</span><span class="err">/</span><span class="sr">&lt;user&gt;</span><span class="err">”</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#stateVersion = &#34;22.05&#34;;  # If there is any complaining about differing stateVersions, specifically state here.</span>
+</span></span><span class="line"><span class="cl">            <span class="n">configuration</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="sr">/home</span><span class="err">/</span><span class="sr">&lt;user&gt;/.config/home/home.nix</span>
+</span></span><span class="line"><span class="cl">              <span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><u><strong>Inside nixosConfigurations</strong></u></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#other inputs</span>
+</span></span><span class="line"><span class="cl">      <span class="n">home-manager</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">=</span> <span class="sd">github:nix-community/home-manager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span><span class="o">.</span><span class="n">nixpkgs</span><span class="o">.</span><span class="n">follows</span> <span class="o">=</span> <span class="s2">&#34;nixpkgs&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span> <span class="n">self</span><span class="o">,</span> <span class="n">nixpkgs</span><span class="o">,</span> <span class="n">home-manager</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">let</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#variables</span>
+</span></span><span class="line"><span class="cl">      <span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nixosConfigurations</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="sr">&lt;user&gt;</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">nixosSystem</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">inherit</span> <span class="n">system</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">modules</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="sr">./configuration.nix</span>
+</span></span><span class="line"><span class="cl">              <span class="n">home-manager</span><span class="o">.</span><span class="n">nixosModules</span><span class="o">.</span><span class="n">home-manager</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">home-manager</span><span class="o">.</span><span class="n">useGlobalPkgs</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">home-manager</span><span class="o">.</span><span class="n">useUserPackages</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">home-manager</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="sr">&lt;user&gt;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="sr">./home.nix</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="p">};</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">];</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><u><strong>Build</strong></u></p>
+<p>If you chose for the seperate options, you will have to rebuild your system once for home-manager and once for flake itself.
+You will first need to build your home-manager config and afterwards switch.</p>
+<ul>
+<li><code>$ nix build .#hmConfig.&lt;user&gt;.activationPackage</code></li>
+<li><code>$ ./result/activate</code>
+These command only need to be run on your initial installation. From now on you can switch to the new home-manager configuration using: <code>home-manager switch --flake .#&lt;host&gt;</code></li>
+</ul>
+<p>If you chose for the nixosConfigurations module just rebuild as usual: <code>$ sudo nixos-rebuild switch --flake .#&lt;host&gt;</code></p>
+<p><u><strong>Update</strong></u>
+Since all dependencies are now declared, you will first need to update the flake.lock file before you can rebuild the system.</p>
+<ul>
+<li><code>$ nix flake update</code></li>
+<li><code>$ sudo nixos-rebuild switch --flake .#&lt;host&gt;</code></li>
+</ul>
+<h2 id="conclusion" class="relative group">Conclusion <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#conclusion" aria-label="Anchor">#</a></span></h2>
+<p>By now, you should have a decent grasp of how NixOS works.
+If some notes are not clear, I highly recommend that you watch the 3 hour mini-course where I go into much more detail.</p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="w-24 h-24 !mt-0 !mb-0 ltr:mr-4 rtl:ml-4 rounded-full"
+          width="96"
+          height="96"
+          alt="Matthias Benaets"
+          src="/img/author_huacd904d012462e8d70209e39f9d411b4_97330_192x192_fill_q75_box_smart1.jpg"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-500 dark:text-neutral-400 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Matthias Benaets
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about myself</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:matthias@benaets.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://linkedin.com/in/matthias-benaets"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/MatthiasBenaets"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://youtube.com/channel/UCBM5nbY7a3EqqvxFZzOEkqQ"
+          target="_blank"
+          aria-label="Youtube"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://benaets.com/posts/nixos/&amp;quote=Getting%20Started%20with%20NixOS"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://twitter.com/intent/tweet/?url=https://benaets.com/posts/nixos/&amp;text=Getting%20Started%20with%20NixOS"
+          title="Tweet on Twitter"
+          aria-label="Tweet on Twitter"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://reddit.com/submit/?url=https://benaets.com/posts/nixos/&amp;resubmit=true&amp;title=Getting%20Started%20with%20NixOS"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://benaets.com/posts/nixos/&amp;title=Getting%20Started%20with%20NixOS"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+      
+        <a
+          class="bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800 m-1 hover:bg-primary-500 hover:text-neutral rounded min-w-[2.4rem] inline-block text-center p-1"
+          href="mailto:?body=https://benaets.com/posts/nixos/&amp;subject=Getting%20Started%20with%20NixOS"
+          title="Send via email"
+          aria-label="Send via email"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </section>
+
+
+      
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="absolute top-[100vh] ltr:right-0 rtl:left-0 w-12 pointer-events-none bottom-0"
+          >
+            <a
+              href="#the-top"
+              class="w-12 h-12 sticky pointer-events-auto top-[calc(100vh-5.5rem)] bg-neutral/50 dark:bg-neutral-800/50 backdrop-blur rounded-full text-xl flex items-center justify-center text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+    <nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li
+            class="mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+          >
+            <a
+              class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+              href="/tags/"
+              title="Tags"
+              >Tags</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2022
+            Matthias Benaets
+        </p>
+      
+      
+      
+    </div>
+    
+    
+      <div
+        class="text-sm cursor-pointer text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-14 rtl:ml-14"
+      >
+        <button
+          id="appearance-switcher"
+          class="w-12 h-12 "
+          type="button"
+          title="Switch to dark appearance"
+        >
+          <span class="inline dark:hidden">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+</span>
+          <span class="hidden dark:inline">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+</span>
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="fixed inset-0 z-50 flex flex-col p-4 sm:p-6 md:p-[10vh] lg:p-[12vh] w-screen h-screen cursor-default bg-neutral-500/50 backdrop-blur-sm dark:bg-neutral-900/50 invisible"
+  data-url="https://benaets.com/"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg border-neutral-200 top-20 bg-neutral dark:bg-neutral-800 dark:border-neutral-700"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-transparent focus:outline-2"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matthias Benaets on Home</title>
+    <link>https://benaets.com/</link>
+    <description>Recent content in Matthias Benaets on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://benaets.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with NixOS</title>
+      <link>https://benaets.com/posts/nixos/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://benaets.com/posts/nixos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://benaets.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://benaets.com/about/</guid>
+      <description>My name is Matthias Benaets, I currently reside in Alken, Limburg, Belgium  .</description>
+    </item>
+    
+  </channel>
+</rss>
