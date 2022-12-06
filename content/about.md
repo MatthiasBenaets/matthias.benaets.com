@@ -39,19 +39,20 @@ Maintenance worker & Production operator<br>
 ### Skills
 A lot of my experience is predominantly around teaching and didactical IT. Though, below is a list of tools and technologies that I have experience with:
 
-#### Adobe Creative Suite
-Photoshop &bull; Illustrator &bull; Lightroon (Classic) &bull; Premiere Pro &bull; After Effects
+
 #### Office
 Microsoft Office Suite &bull; Google Workspace
+#### Adobe CC
+Photoshop &bull; Illustrator &bull; Lightroom (Classic) &bull; Premiere Pro &bull; After Effects
 #### Programming / Scripting
 VB.net &bull; C# &bull; Python &bull; HTML5/CSS/JS &bull; Shell Scripting
 #### Operating Systems
 Windows &bull; MacOS &bull; GNU/Linux (Debian, Ubuntu, Arch, NixOS) &bull; Proxmox VE &bull; TrueNAS
 #### Languages
-Native/Fluent &nbsp;&nbsp;: Dutch &bull; English <br>
+Native/Fluent: Dutch &bull; English <br>
 Basic/Understand: French &bull; German
 #### Others
-Salesforce &bull; Docker &bull; ZFS &bull; Git 
+Salesforce &bull; Containerization (Docker/LXC) &bull; ZFS &bull; Git 
 
 ---
 

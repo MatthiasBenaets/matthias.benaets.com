@@ -3,24 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     
+  
+    
+  
+    
       <url>
-            <loc>https://benaets.com/posts/nixos/</loc>
-            <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+            <loc>https://benaets.com/posts/homelab/</loc>
+            <lastmod>2022-09-28T00:00:00+00:00</lastmod>
           </url>
     
   
     
       <url>
             <loc>https://benaets.com/</loc>
-            <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+            <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://benaets.com/posts/</loc>
+            <lastmod>2022-09-28T00:00:00+00:00</lastmod>
           </url>
     
   
     
   
     
+  
+    
+  
+    
       <url>
-            <loc>https://benaets.com/posts/</loc>
+            <loc>https://benaets.com/posts/nixos/</loc>
             <lastmod>2022-04-12T00:00:00+00:00</lastmod>
           </url>
     
