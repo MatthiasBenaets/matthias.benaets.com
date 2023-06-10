@@ -7,7 +7,7 @@ title: 'Matthias Benaets'
 Welcome 👋, I'm **Matthias**
 
 I'm currenlty employed at [University Hasselt](https://www.uhasselt.be/en) as an ICT officer.
-<br>My main goal is to didactically and technologically improve the courses, lectures and infrastructure for the master program of statistics and data science, CenStat, I-BioStat and DSI.
+<br>My main goal is to didactically and technologically improve the courses, lectures and infrastructure for the master program of statistics and data science, DSI and CenStat.
 <br><br>
 I love tech and like to explore and learn about various open-source technologies and projects. This website will mainly be use to track my career, experience and as a personal knowledge base.
 <br><br>

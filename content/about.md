@@ -52,7 +52,7 @@ Windows &bull; MacOS &bull; GNU/Linux (Debian, Ubuntu, Arch, NixOS) &bull; Proxm
 Native/Fluent: Dutch &bull; English <br>
 Basic/Understand: French &bull; German
 #### Others
-Salesforce &bull; Containerization (Docker/LXC) &bull; ZFS &bull; Git 
+Salesforce &bull; Containerization (Docker/LXC) &bull; ZFS &bull; Git &bull; Additive Manufacturing (3d printing) &bull; Autodesk Fusion 360
 
 ---
 
