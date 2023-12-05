@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { fly, scale } from 'svelte/transition';
+  import { fade, fly, scale } from 'svelte/transition';
   import { backOut, quintOut } from 'svelte/easing';
   import * as config from "$lib/config";
 
@@ -18,6 +18,8 @@
   };
   const formattedDate = d.toLocaleDateString('en-US', options);
   const formattedTime = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
+
+  console.log("Matthias Benaets");
 </script>
 
 <svelte:head>
@@ -31,9 +33,9 @@
 {#if ready}
   <div class="flex flex-col items-center justify-center">
     <div class="m-5">
-      <img in:fly={{ y: 50, duration: 300, delay: 500, easing: backOut}} class="h-36 rounded-full active:pointer-events-none hover:rounded-xl pointer-events-none" src="avatar.jpg" alt="Matthias Benaets">
+      <img in:fly={{ y: 50, duration: 300, delay: 500, easing: backOut}} out:fade class="h-36 rounded-full active:pointer-events-none hover:rounded-xl pointer-events-none" style="aspect-ratio: 1/1;" src="avatar.webp" alt="Matthias Benaets">
     </div>
-    <div in:fly={{ y: -50, duration: 300, delay: 700, easing: backOut}} class="flex">
+    <div in:fly={{ y: -50, duration: 300, delay: 700, easing: backOut}} out:fade class="flex">
       <svg class="mr-2 text-neutral-100" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
       <span class="cursor-default text-xs text-neutral-400"> Alken, BE &nbsp | &nbsp{formattedTime} - {formattedDate}</span>
     </div>
@@ -46,7 +48,7 @@
         Benaets
       </h1>
     </div>
-    <div class="mb-14 text-neutral-600 text-2xl">
+    <div class="mb-14 text-neutral-500 text-2xl">
       <span>Didactic IT - Teacher<span>
     </div>
   </div>

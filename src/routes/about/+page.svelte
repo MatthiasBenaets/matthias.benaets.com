@@ -33,7 +33,7 @@
     </div>
 
     <div class="text-neutral-100">
-      <img in:fly={{ y: -50, duration: 300, delay: 800, easing: backOut}} class="float-right h-36 rounded-2xl active:pointer-events-none hover:rounded-xl pointer-events-none" src="avatar.jpg" alt="Matthias Benaets">
+      <img in:fly={{ y: -50, duration: 300, delay: 800, easing: backOut}} class="float-right h-36 rounded-2xl active:pointer-events-none hover:rounded-xl pointer-events-none" src="avatar.webp" alt="Matthias Benaets" style="aspect-ratio: 1/1">
       <p class="mb-2" in:fly={{ y: 30, duration: 300, delay: 400, easing: backOut}}>
         My name is Matthias Benaets, I currently reside in <a href="https://www.google.com/maps/place/3570+Alken/@50.8820253,5.2970649,13z/data=!3m1!4b1!4m6!3m5!1s0x47c118c17acd03cf:0xba0a56b07a363d7f!8m2!3d50.8891784!4d5.306758!16zL20vMDE3bl9n?entry=ttu" target="_blank">Alken, Limburg, Belgium</a>.
       </p>

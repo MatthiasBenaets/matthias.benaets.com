@@ -46,10 +46,10 @@ export const skills = [
   {
     category: "Languages",
     field: [
-      "Dutch <span class='text-xs text-neutral-600'>Native</span>",
-      "English <span class='text-xs text-neutral-600'>Fluent</span>",
-      "French <span class='text-xs text-neutral-600'>Basic</span>",
-      "German <span class='text-xs text-neutral-600'>Basic</span>",
+      "Dutch <span class='text-xs text-neutral-400'>Native</span>",
+      "English <span class='text-xs text-neutral-400'>Fluent</span>",
+      "French <span class='text-xs text-neutral-400'>Basic</span>",
+      "German <span class='text-xs text-neutral-400'>Basic</span>",
     ],
   },
   {

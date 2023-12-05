@@ -8,6 +8,8 @@
 
   export let isHomePage: Boolean = false;
 
+  export let data;
+
   let ready = false;
 
   onMount(() => {
@@ -25,15 +27,13 @@
     <Header />
   {/if}
   <main class="max-w-screen md:max-w-3xl mx-auto">
-    <slot />
+    {#key data.url}
+      <div in:fade={{ duration: 200, delay: 200}} out:fade={{ duration: 200 }}>
+        <slot />
+      </div>
+    {/key}
   </main>
-  <!-- {#if ready && isHomePage} -->
-  <!--   <div transition:fade={{ delay: 1500, duration: 500 }}> -->
-  <!--     <Footer /> -->
-  <!--   </div> -->
-  <!-- {:else if ready} -->
     <Footer />
-  <!-- {/if} -->
 </div>
 
 <style>
