@@ -8,7 +8,7 @@ export const experience = [
               As a key team member at the university, I play a crucial role in enhancing the educational experience through my many responsibilities.\
             </p> \
             <p class="mb-2"> \
-              Spearheading the distance learning initiatives, I provide invaluable support to lecturers by assisting them with blended learning, Blackboard courses, module creation, uniformity, and exam management. \
+              While spearheading the distance learning initiatives, I provide invaluable support to lecturers by assisting them with blended learning, Blackboard courses, module creation, uniformity, and exam management. \
               <br \> \
               I provide technical support across various institutes such as DSI, CenStat, and the Master of Statistics and Data Science. \
             </p> \
@@ -69,7 +69,7 @@ export const experience = [
     company: "Telenet Business Callexcell - Sint-Truiden",
     link: "https://www2.telenet.be/business/en/soho",
     tasks: '<p class="mb-2"> \
-              As a technical advisor, I providing comprehensive tech support for small and medium-sized businesses. \
+              As a technical advisor, I provided comprehensive tech support for small and medium-sized businesses. \
             </p> \
             <p class="mb-2"> \
               My role encompassed troubleshooting and resolving issues related to internet, landline, mobile, and television services. \
