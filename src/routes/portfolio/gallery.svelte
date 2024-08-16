@@ -31,7 +31,9 @@
 				});
 			});
 			const loadedImages = await Promise.all(imagePromises);
-			return loadedImages.filter((img): img is Image => img !== null);
+			return loadedImages
+				.filter((img): img is Image => img !== null)
+				.sort(() => Math.random() - 0.5);
 		} catch (error) {
 			console.error('Error loading images:', error);
 			return [];
