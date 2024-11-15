@@ -100,7 +100,7 @@
 			<img
 				src={image.src}
 				alt={image.alt}
-				class="w-full h-full object-cover rounded"
+				class="w-full h-full object-cover rounded pointer-events-none"
 				in:fade={{ delay: Math.floor(Math.random() * 500) }}
 			/>
 		</div>

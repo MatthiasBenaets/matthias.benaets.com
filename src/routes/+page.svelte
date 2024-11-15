@@ -8,10 +8,8 @@
 	const d = new Date();
 	const options: Intl.DateTimeFormatOptions = {
 		timeZone: 'Europe/Brussels',
-		weekday: 'short',
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric'
+		hour: 'numeric',
+		minute: 'numeric'
 	};
 	const formattedDate = d.toLocaleDateString('en-US', options);
 	const formattedTime = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
