@@ -46,3 +46,6 @@ npm-debug.log
 /.direnv/
 /.nix-hex/
 /.nix-mix/
+
+# MacOS
+.DS_Store
