@@ -17,6 +17,7 @@ config :website, WebsiteWeb.Endpoint,
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: WebsiteWeb.ErrorHTML, json: WebsiteWeb.ErrorJSON],
+    root_layout: {WebsiteWeb.ErrorHTML, :root},
     layout: false
   ],
   pubsub_server: Website.PubSub,

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="[scrollbar-gutter:stable]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <title>Error · Matthias Benaets</title>
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+    <link rel="icon" type="image/png" href={~p"/images/favicon.png"} />
+  </head>
+  <body class="bg-[#111] min-w-[320px] h-screen">
+    <main class="flex max-w-screen h-screen md:max-w-3xl mx-auto text-white">
+      <div class="flex flex-col justify-center mx-auto">
+        {@inner_content}
+
+        <div class="mt-5">
+          <.link href={~p"/"} class="hover:text-purple-400">Back Home</.link>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Sen&display=swap');
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+  * {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+</style>

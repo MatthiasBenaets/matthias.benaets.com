@@ -19,7 +19,8 @@ config :website, WebsiteWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  # Change to false to get actual error page
+  debug_errors: false,
   secret_key_base: "rC/CVb2N7SsUpCS+RNEcal6PCuHjmis4STHeTZaGYt4ct95GCsyay7AGFPVhoAeG",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:website, ~w(--sourcemap=inline --watch)]},
