@@ -1,0 +1,29 @@
+<div>
+  <button
+    type="button"
+    tabIndex="0"
+    phx-click="menu-toggle"
+    phx-target={@myself}
+    class="text-neutral-100 hover:text-gray-400 focus:outline-none sm:hidden absolute top-4 right-4"
+  >
+    <.icon name="hero-bars-3" />
+  </button>
+
+  <div class={
+      "flex-col mt-8 space-y-4 items-center justify-center sm:flex sm:flex-row sm:space-y-0 sm:space-x-10 sm:mt-0 text-xl bg-transparent " <>
+      if @menu_open, do: "flex", else: "hidden"
+    }>
+    <a class="text-neutral-100 hover:text-purple-400" href="/">
+      Home
+    </a>
+    <a class="text-neutral-100 hover:text-purple-400" href="/about">
+      About
+    </a>
+    <a class="text-neutral-100 hover:text-purple-400" href="/cv">
+      CV
+    </a>
+    <a class="text-neutral-100 hover:text-purple-400" href="/portfolio">
+      Portfolio
+    </a>
+  </div>
+</div>
