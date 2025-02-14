@@ -1,0 +1,107 @@
+<div class="flex flex-col items-center justify-center mb-10">
+  <div class="flex flex-col sm:flex-row items-center justify-center uppercase mt-14 mb-5">
+    <h1 class="cursor-default text-4xl text-[#111111] font-extrabold stroke stroke-neutral-100 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out">
+      Curriculum
+    </h1>
+    <span class="hidden sm:inline-block"> &nbsp&nbsp </span>
+    <h1 class="cursor-default text-4xl font-extrabold text-neutral-100 hover:text-purple-400 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out">
+      Vitae
+    </h1>
+  </div>
+</div>
+
+<div class="sm:w-[640px] mx-auto px-5 sm:px-0">
+  <h2 class="mb-5 text-2xl font-medium text-neutral-100">
+    Career
+  </h2>
+  <div
+    :for={{experience, index} <- Enum.with_index(@experience)}
+    class="flex flex-col sm:flex-row text-sm mb-10"
+  >
+    <div class="w-3/12">
+      <span class="text-neutral-400 text-[18px] tracking-wider mono">
+        {experience.period}
+      </span>
+    </div>
+    <div class="flex flex-col w-9/12">
+      <span class="text-neutral-100 text-[18px]">
+        {experience.name}
+      </span>
+      <a
+        href={experience.link}
+        class="flex text-neutral-400 text-[14px] hover:text-purple-400"
+        target="_blank"
+      >
+        {experience.company} &nbsp
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mt-1"
+        >
+          <path d="M13 5H19V11" />
+          <path d="M19 5L5 19" />
+        </svg>
+      </a>
+      <div class="pt-3">
+        <div :if={experience.visible} class="pb-4 text-neutral-400">
+          {raw(experience.tasks)}
+        </div>
+        <button
+          :if={Map.get(experience, :tasks)}
+          phx-click="toggle_visibility"
+          phx-value-index={index}
+          class="text-start text-neutral-400 hover:text-purple-400"
+        >
+          {if experience.visible, do: "Show less", else: "Show more.."}
+        </button>
+      </div>
+    </div>
+  </div>
+  <h2 class="mb-5 text-2xl font-medium text-neutral-100">
+    Education
+  </h2>
+  <div :for={education <- @education} class="flex flex-col sm:flex-row text-sm mb-10">
+    <div class="flex flex-col w-3/12">
+      <span class="text-neutral-400 text-[18px] tracking-wider mono">
+        {education.period}
+      </span>
+      <span :if={Map.get(education, :honor)} class="text-neutral-400">
+        {education.honor}
+      </span>
+    </div>
+    <div class="flex flex-col w-9/12">
+      <span class="text-neutral-100 text-[18px]">
+        {raw(education.name)}
+      </span>
+      <a
+        href={education.link}
+        class="flex text-neutral-400 text-[14px] hover:text-purple-400"
+        target="_blank"
+      >
+        {education.school} &nbsp
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mt-1"
+        >
+          <path d="M13 5H19V11" />
+          <path d="M19 5L5 19" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
