@@ -39,4 +39,10 @@ npm-debug.log
 # *.db
 *.db-*
 
+# ElixirLS files
 /.elixir_ls/
+
+# Nix and direnv
+/.direnv/
+/.nix-hex/
+/.nix-mix/
