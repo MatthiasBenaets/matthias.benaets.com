@@ -20,6 +20,7 @@ defmodule WebsiteWeb.Router do
     live "/", HomeLive
     live "/about", AboutLive
     live "/cv", CvLive
+    live "/portfolio", PortfolioLive
   end
 
   # Other scopes may use custom stacks.

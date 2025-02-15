@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center mb-10">
+  <div class="flex uppercase mt-14 mb-5">
+    <h1 class="cursor-default text-4xl text-[#111111] font-extrabold stroke stroke-neutral-100 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out">
+      Portfolio
+    </h1>
+  </div>
+</div>
+
+<div class="flex flex-row items-center justify-between h-[50vh] md:max-w-3xl w-[90vw]">
+  <.link navigate={~p"/portfolio?id=#{@prev_id}"} class="text-2xl text-white">
+    <.icon name="hero-arrow-left" class="w-6 h-6 hover:text-purple-400" />
+  </.link>
+  <img src={~p"/images/#{@id}"} alt={@id} class="max-h-[50vh] max-w-[90%]" />
+  <.link navigate={~p"/portfolio?id=#{@next_id}"} class="text-2xl text-white">
+    <.icon name="hero-arrow-right" class="w-6 h-6 hover:text-purple-400" />
+  </.link>
+</div>
