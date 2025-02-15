@@ -3,13 +3,21 @@
 <div class="flex flex-col items-center justify-center">
   <div class="m-5">
     <img
-      class="h-36 rounded-full active:pointer-events-none hover:rounded-xl pointer-events-none"
+      class="h-36 rounded-full active:pointer-events-none hover:rounded-xl pointer-events-none opacity-0"
       style="aspect-ratio: 1/1;"
       src={~p"/images/avatar.webp"}
       alt="Matthias Benaets"
+      phx-mounted={
+        JS.transition({"ease-out duration-300 delay-500", "opacity-0", "opacity-100"}, time: 800)
+      }
     />
   </div>
-  <div class="flex">
+  <div
+    class="flex opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-300 delay-700", "opacity-0", "opacity-100"}, time: 1000)
+    }
+  >
     <svg
       class="mr-2 text-neutral-100"
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +40,10 @@
       )}
     </span>
   </div>
-  <div class="flex flex-col sm:flex-row items-center justify-center uppercase mt-14 mb-5">
+  <div
+    class="flex flex-col sm:flex-row items-center justify-center uppercase mt-14 mb-5 scale-0"
+    phx-mounted={JS.transition({"ease-out duration-1000", "scale-0", "scale-100"}, time: 1000)}
+  >
     <h1 class="cursor-default text-4xl text-[#111111] font-extrabold stroke stroke-neutral-100 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out">
       Matthias
     </h1>
@@ -41,13 +52,23 @@
       Benaets
     </h1>
   </div>
-  <div class="mb-14 text-neutral-500 text-2xl">
+  <div
+    class="mb-14 text-neutral-500 text-2xl scale-0"
+    phx-mounted={JS.transition({"ease-out duration-1000", "scale-0", "scale-100"}, time: 1000)}
+  >
     <span>Didactic IT - Teacher<span> </span></span>
   </div>
 </div>
 
 <ul class="max-w-screen-sm flex mx-auto text-neutral-100">
-  <li class="mx-auto hover:text-purple-400">
+  <li
+    class="mx-auto hover:text-purple-400 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-300 delay-[0.9s]", "opacity-0", "opacity-100"},
+        time: 1200
+      )
+    }
+  >
     <a href="mailto:matthias@benaets.com" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +88,14 @@
       <span class="text-neutral-400">Mail</span>
     </a>
   </li>
-  <li class="mx-auto hover:text-purple-400">
+  <li
+    class="mx-auto hover:text-purple-400 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-300 delay-[1.0s]", "opacity-0", "opacity-100"},
+        time: 1300
+      )
+    }
+  >
     <a href="https://linkedin.com/in/matthias-benaets" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +116,14 @@
       <span class="text-neutral-400">LinkedIn</span>
     </a>
   </li>
-  <li class="mx-auto hover:text-purple-400">
+  <li
+    class="mx-auto hover:text-purple-400 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-300 delay-[1.1s]", "opacity-0", "opacity-100"},
+        time: 1400
+      )
+    }
+  >
     <a href="https://github.com/MatthiasBenaets" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +143,14 @@
       <span class="text-neutral-400">GitHub</span>
     </a>
   </li>
-  <li class="mx-auto hover:text-purple-400">
+  <li
+    class="mx-auto hover:text-purple-400 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-300 delay-[1.2s]", "opacity-0", "opacity-100"},
+        time: 1500
+      )
+    }
+  >
     <a href="https://www.youtube.com/@matthiasbenaets" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +172,12 @@
   </li>
 </ul>
 
-<div class="flex items-center justify-center text-center mt-10 text-neutral-100 px-5 sm:px-0">
+<div
+  class="flex items-center justify-center text-center mt-10 text-neutral-100 px-5 sm:px-0 opacity-0"
+  phx-mounted={
+    JS.transition({"ease-out duration-300 delay-[1.1s]", "opacity-0", "opacity-100"}, time: 1400)
+  }
+>
   <span>
     Welcome 👋, I’m Matthias
     <span>

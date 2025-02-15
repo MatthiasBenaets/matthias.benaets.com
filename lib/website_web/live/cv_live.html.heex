@@ -1,5 +1,8 @@
 <div class="flex flex-col items-center justify-center mb-10">
-  <div class="flex flex-col sm:flex-row items-center justify-center uppercase mt-14 mb-5">
+  <div
+    class="flex flex-col sm:flex-row items-center justify-center uppercase mt-14 mb-5 scale-0"
+    phx-mounted={JS.transition({"ease-out duration-[1.2s]", "scale-0", "scale-100"}, time: 1200)}
+  >
     <h1 class="cursor-default text-4xl text-[#111111] font-extrabold stroke stroke-neutral-100 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out">
       Curriculum
     </h1>
@@ -11,12 +14,24 @@
 </div>
 
 <div class="sm:w-[640px] mx-auto px-5 sm:px-0">
-  <h2 class="mb-5 text-2xl font-medium text-neutral-100">
+  <h2
+    class="mb-5 text-2xl font-medium text-neutral-100 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-[0.5s]", "opacity-0", "opacity-100"}, time: 500)
+    }
+  >
     Career
   </h2>
   <div
     :for={{experience, index} <- Enum.with_index(@experience)}
-    class="flex flex-col sm:flex-row text-sm mb-10"
+    class="flex flex-col sm:flex-row text-sm mb-10 opacity-0"
+    phx-mounted={
+      JS.transition(
+        {"ease-out duration-[0.3s] delay-[#{Decimal.round(Decimal.from_float(0.3 + 0.1 * index), 1)}s]",
+         "opacity-0", "opacity-100"},
+        time: 1000
+      )
+    }
   >
     <div class="w-3/12">
       <span class="text-neutral-400 text-[18px] tracking-wider mono">
@@ -64,10 +79,27 @@
       </div>
     </div>
   </div>
-  <h2 class="mb-5 text-2xl font-medium text-neutral-100">
+  <h2
+    class="mb-5 text-2xl font-medium text-neutral-100 opacity-0"
+    phx-mounted={
+      JS.transition({"ease-out duration-[0.5s] delay-[0.5s]", "opacity-0", "opacity-100"},
+        time: 1000
+      )
+    }
+  >
     Education
   </h2>
-  <div :for={education <- @education} class="flex flex-col sm:flex-row text-sm mb-10">
+  <div
+    :for={{education, index} <- Enum.with_index(@education)}
+    class="flex flex-col sm:flex-row text-sm mb-10 opacity-0"
+    phx-mounted={
+      JS.transition(
+        {"ease-out duration-[0.3s] delay-[#{Decimal.round(Decimal.from_float(0.8 + 0.1 * index), 1)}s]",
+         "opacity-0", "opacity-100"},
+        time: 1500
+      )
+    }
+  >
     <div class="flex flex-col w-3/12">
       <span class="text-neutral-400 text-[18px] tracking-wider mono">
         {education.period}

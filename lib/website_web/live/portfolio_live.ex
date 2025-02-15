@@ -34,33 +34,23 @@ defmodule WebsiteWeb.PortfolioLive do
     "IMG_8508.webp"
   ]
 
-  def mount(%{"id" => id}, _session, socket) do
+  def handle_params(%{"img" => id}, _uri, socket) do
     index = Enum.find_index(@images, &(&1 == id))
 
-    socket =
-      assign(socket,
-        id: id,
-        page_title: "Portfolio",
-        images: @images,
-        prev_id: Enum.at(@images, rem(index - 1 + length(@images), length(@images))),
-        next_id: Enum.at(@images, rem(index + 1, length(@images)))
-      )
-
-    {:ok, socket}
+    {:noreply,
+     socket
+     |> assign(:id, id)
+     |> assign(:prev_id, Enum.at(@images, rem(index - 1 + length(@images), length(@images))))
+     |> assign(:next_id, Enum.at(@images, rem(index + 1, length(@images))))}
   end
 
-  def mount(_params, _session, socket) do
-    first = hd(@images)
+  def handle_params(_params, _uri, socket) do
+    id = hd(@images)
 
-    socket =
-      assign(socket,
-        id: first,
-        page_title: "Portfolio",
-        images: @images,
-        prev_id: List.last(@images),
-        next_id: Enum.at(@images, 1)
-      )
-
-    {:ok, socket}
+    {:noreply,
+     socket
+     |> assign(:id, id)
+     |> assign(:prev_id, List.last(@images))
+     |> assign(:next_id, Enum.at(@images, 1))}
   end
 end
