@@ -14,6 +14,17 @@ config :website,
 # Configures the endpoint
 config :website, WebsiteWeb.Endpoint,
   url: [host: "localhost"],
+  check_origin: [
+    "http://localhost",
+    "https://localhost",
+    "//localhost",
+    "http://matthias.benaets.com",
+    "https://matthias.benaets.com",
+    "//matthias.benaets.com",
+    "http://benaets.com",
+    "https://benaets.com",
+    "//benaets.com"
+  ],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: WebsiteWeb.ErrorHTML, json: WebsiteWeb.ErrorJSON],
