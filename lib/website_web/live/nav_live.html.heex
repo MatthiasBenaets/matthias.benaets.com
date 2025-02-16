@@ -13,17 +13,17 @@
       "flex-col mt-8 space-y-4 items-center justify-center sm:flex sm:flex-row sm:space-y-0 sm:space-x-10 sm:mt-0 text-xl bg-transparent " <>
       if @menu_open, do: "flex", else: "hidden"
     }>
-    <a class="text-neutral-100 hover:text-purple-400" href="/">
+    <.link navigate={~p"/"} class="text-neutral-100 hover:text-purple-400">
       Home
-    </a>
-    <a class="text-neutral-100 hover:text-purple-400" href="/about">
+    </.link>
+    <.link navigate={~p"/about"} class="text-neutral-100 hover:text-purple-400">
       About
-    </a>
-    <a class="text-neutral-100 hover:text-purple-400" href="/cv">
+    </.link>
+    <.link navigate={~p"/cv"} class="text-neutral-100 hover:text-purple-400">
       CV
-    </a>
-    <a class="text-neutral-100 hover:text-purple-400" href="/portfolio">
+    </.link>
+    <.link navigate={~p"/portfolio"} class="text-neutral-100 hover:text-purple-400">
       Portfolio
-    </a>
+    </.link>
   </div>
 </div>
