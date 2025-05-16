@@ -1,0 +1,12 @@
+services:
+  website:
+    container_name: website
+    image: website:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TZ=Europe/Brussels
+    restart: always
+    ports:
+      - 3000:3000
