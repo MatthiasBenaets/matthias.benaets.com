@@ -21,6 +21,7 @@
 		type="button"
 		tabIndex="0"
 		class="text-neutral-100 hover:text-gray-400 focus:outline-none sm:hidden absolute top-4 right-4"
+		aria-label="Toggle navigation"
 		onclick={toggleNavbar}
 	>
 		<svg

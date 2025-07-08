@@ -4,15 +4,29 @@
 	import { backOut, quintOut } from 'svelte/easing';
 
 	let ready = $state(false);
+	let mail = $state(false);
+	let copy = $state(false);
 
 	const d = new Date();
 	const options: Intl.DateTimeFormatOptions = {
 		timeZone: 'Europe/Brussels',
-		hour: 'numeric',
-		minute: 'numeric'
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
 	};
-	const formattedDate = d.toLocaleDateString('en-US', options);
-	const formattedTime = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
+	const dateTime = d.toLocaleDateString('ja-JP', options);
+	const [date, time] = dateTime.split(' ');
+	const formattedTime = `${time} - ${date}`;
+
+	const em = 'bWF0dGhpYXNAYmVuYWV0cy5jb20=';
+
+	function copyToClipboard() {
+		navigator.clipboard.writeText(atob(em));
+		copy = true;
+	}
 
 	$effect(() => {
 		ready = true;
@@ -58,8 +72,8 @@
 				/></svg
 			>
 			<span class="cursor-default text-xs text-neutral-400">
-				Alken, BE &nbsp | &nbsp{formattedTime} - {formattedDate}</span
-			>
+				Alken, BE &nbsp | &nbsp{formattedTime}
+			</span>
 		</div>
 		<div
 			transition:scale={{ duration: 1200, easing: quintOut }}
@@ -87,7 +101,7 @@
 			in:fly={{ x: -30, duration: 300, delay: 900, easing: backOut }}
 			class="mx-auto hover:text-purple-400"
 		>
-			<a href="mailto:matthias@benaets.com" target="_blank">
+			<button onclick={() => (mail = true)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -104,7 +118,7 @@
 					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
 				</svg>
 				<span class="text-neutral-400">Mail</span>
-			</a>
+			</button>
 		</li>
 		<li
 			in:fly={{ x: -30, duration: 300, delay: 1000, easing: backOut }}
@@ -205,4 +219,47 @@
 			></span
 		>
 	</div>
+
+	{#if mail}
+		<div in:fade={{ duration: 200 }} out:fade={{ duration: 200 }}>
+			<div class="fixed inset-0 bg-black/90">
+				<button
+					onclick={() => (mail = false)}
+					class="fixed top-5 right-5 text-white hover:text-purple-400"
+					aria-label="Close"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+					>
+				</button>
+			</div>
+			<div
+				class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+			>
+				<div class="flex flex-col items-center justify-center">
+					<a href="mailto:{atob(em)}" target="_blank" class="text-white hover:text-purple-400 m-1">
+						{atob(em)}
+					</a>
+					<button
+						onclick={() => copyToClipboard()}
+						class="bg-purple-400 rounded-sm text-black hover:bg-purple-500 px-2 py-1 duration-500 transition-colors ease-in-out m-1 min-w-20"
+					>
+						{#if !copy}
+							Copy to clipboard
+						{:else}
+							Copied
+						{/if}
+					</button>
+				</div>
+			</div>
+		</div>
+	{/if}
 {/if}
