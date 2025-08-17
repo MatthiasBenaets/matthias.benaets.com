@@ -14,7 +14,11 @@
 />
 
 <div class="flex flex-col items-center justify-center mb-10">
-	<div transition:scale={{ duration: 1200, easing: quintOut }} class="flex uppercase mt-14 mb-5">
+	<div
+		in:scale={{ delay: 100, duration: 1200, easing: quintOut }}
+		out:scale={{ duration: 50, easing: quintOut }}
+		class="flex uppercase mt-14 mb-5"
+	>
 		<h1
 			class="cursor-default text-4xl text-[#111111] font-extrabold stroke stroke-neutral-100 sm:text-5xl md:text-7xl transition-all duration-200 ease-in-out"
 		>

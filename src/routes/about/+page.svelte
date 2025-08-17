@@ -24,7 +24,8 @@
 	<div class="sm:w-[640px] mx-auto px-5 sm:px-0">
 		<div class="flex flex-col items-center justify-center mb-10">
 			<div
-				transition:scale={{ duration: 1200, easing: quintOut }}
+				in:scale={{ delay: 100, duration: 1200, easing: quintOut }}
+				out:scale={{ duration: 50, easing: quintOut }}
 				class="flex uppercase mt-14 mb-5"
 			>
 				<h1
