@@ -2,7 +2,6 @@
 	import { scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import Seo from '../seo.svelte';
-	import Gallery from './gallery.svelte';
 </script>
 
 <Seo
@@ -24,4 +23,20 @@
 	</div>
 </div>
 
-<Gallery />
+<svelte:head>
+	<script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+</svelte:head>
+<a
+	data-flickr-embed="true"
+	data-header="false"
+	data-footer="false"
+	href="https://www.flickr.com/photos/benaets/albums/72157720201914534"
+	title="Wildlife"
+>
+	<img
+		src="https://live.staticflickr.com/65535/51722993255_1438c27658_c.jpg"
+		width="800"
+		height="600"
+		alt="Wildlife"
+	/>
+</a>

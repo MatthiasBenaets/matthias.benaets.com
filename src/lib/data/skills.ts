@@ -10,21 +10,20 @@ export const skills: Skills[] = [
 	},
 	{
 		category: 'Programming',
-		field: [
-			'VB.net',
-			'C#',
-			'HTML',
-			'SvelteKit',
-			'CSS',
-			'Tailwind CSS',
-			'Javascript',
-			'Typescript',
-			'Bash'
-		]
+		field: ['HTML', 'SvelteKit', 'CSS', 'Tailwind CSS', 'Javascript', 'Typescript', 'Bash']
 	},
 	{
 		category: 'Operating Systems',
-		field: ['Windows', 'MacOS', 'Debian', 'Ubuntu', 'Arch', 'NixOS', 'Proxmox VE', 'TrueNAS Scale']
+		field: [
+			'Windows (Server)',
+			'MacOS',
+			'Debian (Server)',
+			'Ubuntu (Server)',
+			'Arch',
+			'NixOS',
+			'Proxmox VE',
+			'TrueNAS Scale'
+		]
 	},
 	{
 		category: 'Languages',
@@ -40,6 +39,11 @@ export const skills: Skills[] = [
 		field: [
 			'Blackboard Learn',
 			'Salesforce',
+			'Ansible',
+			'Active Directory',
+			'LDAP',
+			'HPC',
+			'Slurm',
 			'Docker/LXC',
 			'ZFS',
 			'Git',
