@@ -10,12 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: install ssh keys
+      - name: Install SSH keys
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_ed25519
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-      - name: deploy
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.DIR }} && git pull && npm ci && npm run build && pm2 restart ${{ secrets.DIR }}/build/index.js --name website -p 3000 --watch"
-      - name: cleanup
+
+      - name: Deploy application
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd ${{ secrets.DIR }} &&
+            git pull &&
+            npm ci &&
+            npm run build &&
+            pm2 delete website || true &&
+            PORT=3000 pm2 start build/index.js --name website --watch &&
+            pm2 save
+          "
+
+      - name: Verify deployment
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            pm2 status &&
+            sleep 5 &&
+            curl -f http://localhost:3000 || exit 1
+          "
+
+      - name: Cleanup
         run: rm -rf ~/.ssh
